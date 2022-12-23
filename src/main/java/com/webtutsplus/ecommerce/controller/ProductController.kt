@@ -14,10 +14,10 @@ import javax.validation.Valid
 @RequestMapping("/product")
 class ProductController {
     @Autowired
-    var productService: ProductService? = null
+    private lateinit var productService: ProductService
 
     @Autowired
-    var categoryService: CategoryService? = null
+    private lateinit var categoryService: CategoryService
 
     @get:GetMapping("/")
     val products: ResponseEntity<List<ProductDto>>

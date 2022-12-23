@@ -19,13 +19,13 @@ import javax.transaction.Transactional
 @Transactional
 class OrderService {
     @Autowired
-    private val cartService: CartService? = null
+    private lateinit var cartService: CartService
 
     @Autowired
-    var orderRepository: OrderRepository? = null
+    private lateinit var orderRepository: OrderRepository
 
     @Autowired
-    var orderItemsRepository: OrderItemsRepository? = null
+    private lateinit var orderItemsRepository: OrderItemsRepository
 
     @Value("\${BASE_URL}")
     private val baseURL: String? = null

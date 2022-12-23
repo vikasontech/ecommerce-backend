@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service
 
 @Service
 class ProductService {
+
     @Autowired
-    private val productRepository: ProductRepository? = null
+    private lateinit var productRepository: ProductRepository
+
     fun listProducts(): List<ProductDto> {
         val products = productRepository!!.findAll()
         val productDtos: MutableList<ProductDto> = ArrayList()

@@ -25,12 +25,13 @@ import javax.xml.bind.DatatypeConverter
 
 @Service
 class UserService {
-    @Autowired
-    var userRepository: UserRepository? = null
 
     @Autowired
-    var authenticationService: AuthenticationService? = null
-    var logger = LoggerFactory.getLogger(UserService::class.java)
+    private lateinit var userRepository: UserRepository
+
+    @Autowired
+    private lateinit var authenticationService: AuthenticationService
+    private val logger = LoggerFactory.getLogger(UserService::class.java)
 
     @Throws(CustomException::class)
     fun signUp(signupDto: SignupDto): ResponseDto {
@@ -121,9 +122,9 @@ class UserService {
             logger.error("hashing password failed {}", e.message)
         }
         val user = User(
-           firstName = userCreateDto.firstName,
+            firstName = userCreateDto.firstName,
             lastName = userCreateDto.lastName,
-            email= userCreateDto.email,
+            email = userCreateDto.email,
             role = userCreateDto.role,
             password = encryptedPassword
         )
@@ -131,7 +132,7 @@ class UserService {
         return try {
             createdUser = userRepository!!.save(user)
             val authenticationToken = AuthenticationToken(
-               user = createdUser,
+                user = createdUser,
                 createdDate = LocalDateTime.now(),
                 token = UUID.randomUUID().toString()
             )
@@ -144,9 +145,7 @@ class UserService {
     }
 
     fun canCrudUser(role: Role): Boolean {
-        return if (role === Role.admin || role === Role.manager) {
-            true
-        } else false
+        return role === Role.admin || role === Role.manager
     }
 
     fun canCrudUser(userUpdating: User, userIdBeingUpdated: Int): Boolean {
@@ -156,8 +155,6 @@ class UserService {
             return true
         }
         // user can update his own record, but not his role
-        return if (role === Role.user && userUpdating.id == userIdBeingUpdated) {
-            true
-        } else false
+        return role === Role.user && userUpdating.id == userIdBeingUpdated
     }
 }

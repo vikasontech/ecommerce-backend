@@ -13,8 +13,9 @@ import javax.validation.Valid
 @RestController
 @RequestMapping("/category")
 class CategoryController {
+
     @Autowired
-    private val categoryService: CategoryService? = null
+    private lateinit var categoryService: CategoryService
 
     @get:GetMapping("/")
     val categories: ResponseEntity<List<Category?>>

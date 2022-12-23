@@ -19,13 +19,14 @@ import javax.validation.Valid
 @RequestMapping("/cart")
 class CartController {
     @Autowired
-    private val cartService: CartService? = null
+    private lateinit var cartService: CartService
 
     @Autowired
-    private val productService: ProductService? = null
+    private lateinit var productService: ProductService
 
     @Autowired
-    private val authenticationService: AuthenticationService? = null
+    private lateinit var authenticationService: AuthenticationService
+
     @PostMapping("/add")
     @Throws(AuthenticationFailException::class, ProductNotExistException::class)
     fun addToCart(

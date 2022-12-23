@@ -16,8 +16,10 @@ import java.util.stream.Collectors
 @RestController
 @RequestMapping("/fileUpload")
 class FileUploadController {
+
     @Autowired
-    var fileStoreService: FIleStoreService? = null
+    private lateinit var fileStoreService: FIleStoreService
+
     @PostMapping("/")
     fun handleFileUpload(@RequestParam("file") file: MultipartFile): String {
         return fileStoreService!!.store(file)

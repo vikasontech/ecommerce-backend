@@ -17,12 +17,7 @@ import javax.transaction.Transactional
 @Transactional
 class CartService {
     @Autowired
-    private var cartRepository: CartRepository? = null
-
-    constructor() {}
-    constructor(cartRepository: CartRepository?) {
-        this.cartRepository = cartRepository
-    }
+    private lateinit var cartRepository: CartRepository
 
     fun addToCart(addToCartDto: AddToCartDto, product: Product, user: User) {
         val cart = Cart(product=product,
@@ -46,12 +41,16 @@ class CartService {
     }
 
     fun updateCartItem(cartDto: AddToCartDto, user: User?, product: Product?) {
-        val cart = cartRepository!!.getOne(cartDto.id)
+        //todo: need to check the null pointer
+        val cart = cartRepository?.getOne(cartDto.id)
             ?.copy(
                 quantity = cartDto.quantity,
                 createdDate = LocalDateTime.now()
             )
-        cartRepository!!.save(cart)
+        cart?.let {
+            cartRepository!!.save(it)
+
+        }
     }
 
     @Throws(CartItemNotExistException::class)

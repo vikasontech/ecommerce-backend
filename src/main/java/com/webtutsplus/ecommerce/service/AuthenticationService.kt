@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service
 @Service
 class AuthenticationService {
     @Autowired
-    var repository: TokenRepository? = null
+    private lateinit var repository: TokenRepository
     fun saveConfirmationToken(authenticationToken: AuthenticationToken) {
         repository!!.save(authenticationToken)
     }
