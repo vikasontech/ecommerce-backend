@@ -6,15 +6,13 @@ import com.stripe.model.checkout.Session
 import com.stripe.param.checkout.SessionCreateParams
 import com.webtutsplus.ecommerce.dto.checkout.CheckoutItemDto
 import com.webtutsplus.ecommerce.exceptions.OrderNotFoundException
-import com.webtutsplus.ecommerce.model.*
+import com.webtutsplus.ecommerce.model.Order
+import com.webtutsplus.ecommerce.model.User
 import com.webtutsplus.ecommerce.repository.OrderItemsRepository
 import com.webtutsplus.ecommerce.repository.OrderRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.util.*
 import javax.transaction.Transactional
 
 @Service

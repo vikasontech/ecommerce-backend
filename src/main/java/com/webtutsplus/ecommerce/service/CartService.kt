@@ -4,12 +4,13 @@ import com.webtutsplus.ecommerce.dto.cart.AddToCartDto
 import com.webtutsplus.ecommerce.dto.cart.CartDto
 import com.webtutsplus.ecommerce.dto.cart.CartItemDto
 import com.webtutsplus.ecommerce.exceptions.CartItemNotExistException
-import com.webtutsplus.ecommerce.model.*
+import com.webtutsplus.ecommerce.model.Cart
+import com.webtutsplus.ecommerce.model.Product
+import com.webtutsplus.ecommerce.model.User
 import com.webtutsplus.ecommerce.repository.CartRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
-import java.util.*
 import javax.transaction.Transactional
 
 @Service

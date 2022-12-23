@@ -1,7 +1,6 @@
 package com.webtutsplus.ecommerce.model
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import com.webtutsplus.ecommerce.dto.product.ProductDto
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 

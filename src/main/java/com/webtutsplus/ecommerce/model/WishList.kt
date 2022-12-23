@@ -1,7 +1,6 @@
 package com.webtutsplus.ecommerce.model
 
 import java.time.LocalDateTime
-import java.util.*
 import javax.persistence.*
 
 @Entity

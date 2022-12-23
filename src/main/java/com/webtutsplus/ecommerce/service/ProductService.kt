@@ -2,7 +2,8 @@ package com.webtutsplus.ecommerce.service
 
 import com.webtutsplus.ecommerce.dto.product.ProductDto
 import com.webtutsplus.ecommerce.exceptions.ProductNotExistException
-import com.webtutsplus.ecommerce.model.*
+import com.webtutsplus.ecommerce.model.Category
+import com.webtutsplus.ecommerce.model.Product
 import com.webtutsplus.ecommerce.repository.ProductRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
