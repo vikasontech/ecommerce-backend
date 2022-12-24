@@ -95,7 +95,7 @@ class UserService {
             // token not present
             throw CustomException("token not present")
         }
-        return SignInResponseDto("success", token!!.token)
+        return SignInResponseDto("success", token!!.token!!)
     }
 
     @Throws(NoSuchAlgorithmException::class)

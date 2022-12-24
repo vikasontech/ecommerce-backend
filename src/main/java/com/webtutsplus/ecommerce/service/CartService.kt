@@ -27,7 +27,7 @@ class CartService {
     }
 
     fun listCartItems(user: User?): CartDto {
-        val cartList = cartRepository!!.findAllByUserOrderByCreatedDateDesc(user)
+        val cartList = cartRepository!!.findAllByUserOrderByCreatedDateDesc(user!!)
         val cartItems: MutableList<CartItemDto> = ArrayList()
         for (cart in cartList!!) {
             val cartItemDto = getDtoFromCart(cart!!)
@@ -63,7 +63,7 @@ class CartService {
         cartRepository!!.deleteAll()
     }
 
-    fun deleteUserCartItems(user: User?) {
+    fun deleteUserCartItems(user: User) {
         cartRepository!!.deleteByUser(user)
     }
 

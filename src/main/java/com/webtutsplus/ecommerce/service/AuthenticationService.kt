@@ -17,7 +17,7 @@ class AuthenticationService {
         repository!!.save(authenticationToken)
     }
 
-    fun getToken(user: User?): AuthenticationToken? {
+    fun getToken(user: User): AuthenticationToken {
         return repository!!.findTokenByUser(user)
     }
 

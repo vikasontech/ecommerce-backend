@@ -6,14 +6,15 @@ import javax.validation.constraints.NotBlank
 @Entity
 @Table(name = "categories")
 data class Category (
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
     @Column(name = "category_name")
-    val categoryName: @NotBlank String,
-    val description: @NotBlank String,
-    val imageUrl: @NotBlank String,
+    val categoryName: String,
+    val description: String,
+    val imageUrl: String,
 
     // add imageURL here
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])

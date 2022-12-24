@@ -1,14 +1,14 @@
 package com.webtutsplus.ecommerce.service
 
 import com.webtutsplus.ecommerce.model.Category
-import com.webtutsplus.ecommerce.repository.Categoryrepository
+import com.webtutsplus.ecommerce.repository.CategoryRepository
 import org.springframework.stereotype.Service
 import java.util.*
 import javax.transaction.Transactional
 
 @Service
 @Transactional
-class CategoryService(private val categoryrepository: Categoryrepository) {
+class CategoryService(private val categoryrepository: CategoryRepository) {
     fun listCategories(): List<Category?> {
         return categoryrepository.findAll().toList()
     }
@@ -17,7 +17,7 @@ class CategoryService(private val categoryrepository: Categoryrepository) {
         categoryrepository.save(category)
     }
 
-    fun readCategory(categoryName: String?): Category? {
+    fun readCategory(categoryName: String): Category {
         return categoryrepository.findByCategoryName(categoryName)
     }
 

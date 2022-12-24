@@ -27,7 +27,7 @@ class OrderService {
     @Autowired
     private lateinit var orderItemsRepository: OrderItemsRepository
 
-    @Value("\${BASE_URL}")
+    @Value("\${baseURL}")
     private val baseURL: String? = null
 
     @Value("\${STRIPE_SECRET_KEY}")
